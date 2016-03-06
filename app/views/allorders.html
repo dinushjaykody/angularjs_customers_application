@@ -1,0 +1,55 @@
+
+<div class="jumbotron">
+    <div class="container">
+        <h3>Customer Orders</h3>
+        <br />
+        Search Orders: <input type="text" ng-model="orderFilter.product" class="form-control"/>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="order in orders | filter:orderFilter | orderBy:'name'" class="repeat-animation">
+                <td>{{ order.product }}</td>
+                <td>{{ order.total | currency }}</td>
+            </tr>
+            <tr ng-class="totalType">
+                <td>&nbsp;</td>
+                <td>{{ ordersTotal | currency }}</td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+<!-- FOOTER
+    ================================================== -->
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <footer>
+        <div class="container">
+            <div class="col-sm-3">
+                <p><a href="index.html">{{ appSettings.title }}</a></p>
+            </div><!-- end col -->
+            <div class="col-sm-6">
+                <!--<nav>-->
+                <!--<ul class="list-unstyled list-inline">-->
+                <!--<li><a href="index.html">Home</a></li>-->
+                <!--<li><a href="about.html">About Me</a></li>-->
+                <!--<li><a href="blog.html">Blog</a></li>-->
+                <!--<li><a href="contact.html">Contact</a></li>-->
+                <!--<li class="signup-link"><a href="">Sign up now</a></li>-->
+                <!--</ul>-->
+                <!--</nav>-->
+            </div><!-- end col -->
+            <div class="col-sm-3">
+                <p class="pull-right">&copy; 2016 Dinush Jayakody {{ appSettings.version }}</p>
+            </div><!-- end col -->
+        </div><!-- container -->
+    </footer>
+</div>

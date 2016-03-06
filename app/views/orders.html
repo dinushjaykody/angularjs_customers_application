@@ -1,0 +1,20 @@
+<h3>{{customer.name}}'s Orders </h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Product </th>
+            <th> Total </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="order in customer.orders">
+            <td>{{order.product}}</td>
+            <td>{{order.total}}</td>
+        </tr>
+    </tbody>
+</table>
+
+&nbsp;
+<a href="#/"><button type="button" class="btn btn-primary">Back To Customers</button></a>

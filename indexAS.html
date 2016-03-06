@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" ng-app="customersApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Angular App</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!--Custom Css Link-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body ng-controller="CustomersController as custCtrl">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div>
+        Angular JS Customers Application
+    </div>
+</nav>
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+
+
+        <h3> Customers </h3>
+        Filter: <input type="text" ng-model="customerFilter.name">    </br>  </br>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th ng-click="doSort('name')"> Name </th>
+                <th ng-click="doSort('city')"> City </th>
+                <th ng-click="doSort('orderTotal')"> Order Total </th>
+                <th ng-click="doSort('joined')"> Joined </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat = "cust in custCtrl.customers | filter:customerFilter | orderBy:sortBy:reverse">
+                <td> {{cust.name}} </td>
+                <td> {{cust.city}} </td>
+                <td> {{cust.orderTotal | currency}} </td>
+                <td> {{cust.joined | date:'yyyy-MM-dd'}} </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+<!--INCLUDING ANGULAR JS-->
+<script src="angular.min.js" type="text/javascript"></script>
+<script src="app/app.js"></script>
+<script src="app/controllers/customersControllerWithAs.js"></script>
+
+<!-- Linking Customers Module-->
+<!--<script src="app/app.js"></script>-->
+
+</body>
+</html>

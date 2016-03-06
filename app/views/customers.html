@@ -1,0 +1,56 @@
+<div class="container">
+
+
+    <h3> Customers </h3>
+    Search Customers : <input type="text" ng-model="customerFilter.name" class="form-control">    </br>  </br>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th ng-click="doSort('name')"> Name </th>
+            <th ng-click="doSort('city')"> City </th>
+            <th ng-click="doSort('orderTotal')"> Order Total </th>
+            <th ng-click="doSort('joined')"> Joined </th>
+            <th> &nbsp; </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat = "cust in customers | filter:customerFilter | orderBy:sortBy:reverse" class="repeat-animation">
+            <td> {{cust.name}} </td>
+            <td> {{cust.city}} </td>
+            <td> {{cust.orderTotal | currency}} </td>
+            <td> {{cust.joined | date:'yyyy-MM-dd'}} </td>
+            <td> <a href="#/orders/{{cust.id}}"><button type="button" class="btn btn-primary">View Orders</button></a> </td>
+            <td class="center"><span class="glyphicon glyphicon-remove delete" ng-click="deleteCustomer(cust.id)"></span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+<!-- FOOTER
+    ================================================== -->
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <footer>
+        <div class="container">
+            <div class="col-sm-3">
+                <p><a href="index.html">{{ appSettings.title }}</a></p>
+            </div><!-- end col -->
+            <div class="col-sm-6">
+                <!--<nav>-->
+                <!--<ul class="list-unstyled list-inline">-->
+                <!--<li><a href="index.html">Home</a></li>-->
+                <!--<li><a href="about.html">About Me</a></li>-->
+                <!--<li><a href="blog.html">Blog</a></li>-->
+                <!--<li><a href="contact.html">Contact</a></li>-->
+                <!--<li class="signup-link"><a href="">Sign up now</a></li>-->
+                <!--</ul>-->
+                <!--</nav>-->
+            </div><!-- end col -->
+            <div class="col-sm-3">
+                <p class="pull-right">&copy; 2016 Dinush Jayakody {{ appSettings.version }}</p>
+            </div><!-- end col -->
+        </div><!-- container -->
+    </footer>
+</div>

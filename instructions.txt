@@ -1,0 +1,11 @@
+
+ng animation web sites
+http://augus.github.io/ngAnimate/
+http://www.yearofmoo.com/
+https://github.com/daneden/animate.css
+
+to fund the angular libraries(change the version according to your needs)
+https://code.angularjs.org/1.5.0/
+
+run the node server to get the data from the server.js :   node server.js
+after running the node server use this url for the application http://localhost:8080/index.html#/
